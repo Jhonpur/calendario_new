@@ -2,7 +2,7 @@
 
 Un'applicazione web per la gestione di eventi in un calendario, sviluppata con il framework Django. L'applicazione permette di visualizzare, aggiungere, modificare ed eliminare eventi organizzati in un calendario mensile interattivo.
 
-![Logo Progetto](calendario_new/calendario_progetto/events/static/events/img/agm_solutions.png)
+![Logo Progetto](/calendario_progetto/events/static/events/img/agm_solutions.png)
 
 ## 📋 Caratteristiche
 
@@ -16,7 +16,7 @@ Un'applicazione web per la gestione di eventi in un calendario, sviluppata con i
 
 1. Clona il repository
    ```bash
-   git clone https://github.com/username/calendario-eventi.git
+   git clone https://github.com/Jhonpur/calendario_new.git
    ```
 
 2. Crea un ambiente virtuale e attivalo
@@ -102,12 +102,12 @@ L'applicazione è strutturata secondo il pattern MVC (Model-View-Controller) di 
 
 ## 🖼️ Screenshot
 
-![Calendario Mensile](calendario_new/calendario_progetto/events/static/events/img/cal_img.png)
+![Calendario Mensile](/calendario_progetto/events/static/events/img/cal_img.png)
 *Vista del calendario mensile con eventi*
 
 ## 👥 Contatti
 
-Per domande, suggerimenti o collaborazioni, non esitate a contattarmi:
+Per domande e suggerimenti, non esitate a contattarmi:
 - Email: [lorenzo.pourpour@agmsolutions.net](mailto:lorenzo.pourpour@agmsolutions.net)
 - GitHub: [Jhonpur](https://github.com/username)
 
