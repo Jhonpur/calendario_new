@@ -16,7 +16,7 @@ Un'applicazione web per la gestione di eventi in un calendario, sviluppata con i
 
 1. Clona il repository
    ```bash
-   git clone https://github.com/username/calendario_new.git
+   git clone https://github.com/Jhonpur/calendario_new.git
    ```
 
 2. Crea un ambiente virtuale e attivalo
