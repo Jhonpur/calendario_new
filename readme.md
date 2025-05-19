@@ -16,7 +16,7 @@ Un'applicazione web per la gestione di eventi in un calendario, sviluppata con i
 
 1. Clona il repository
    ```bash
-   git clone https://github.com/username/calendario-eventi.git
+   git clone https://github.com/username/calendario_new.git
    ```
 
 2. Crea un ambiente virtuale e attivalo
@@ -102,7 +102,7 @@ L'applicazione è strutturata secondo il pattern MVC (Model-View-Controller) di 
 
 ## 🖼️ Screenshot
 
-![Calendario Mensile](calendario_new/calendario_progetto/events/static/events/img/cal_img.png)
+![Calendario Mensile](/calendario_progetto/events/static/events/img/cal_img.png)
 *Vista del calendario mensile con eventi*
 
 ## 👥 Contatti
