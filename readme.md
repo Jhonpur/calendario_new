@@ -107,7 +107,7 @@ L'applicazione è strutturata secondo il pattern MVC (Model-View-Controller) di 
 
 ## 👥 Contatti
 
-Per domande, suggerimenti, non esitate a contattarmi:
+Per domande e suggerimenti, non esitate a contattarmi:
 - Email: [lorenzo.pourpour@agmsolutions.net](mailto:lorenzo.pourpour@agmsolutions.net)
 - GitHub: [Jhonpur](https://github.com/username)
 
