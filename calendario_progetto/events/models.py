@@ -10,13 +10,6 @@ class Categoria(models.Model):
         return self.nome
     
 class Evento(models.Model):
-    TIPI_CATEGORIA = [
-        ('lavoro', 'Lavoro'),
-        ('personale', 'Personale'),
-        ('sport', 'Sport'),
-        ('sociale', 'Sociale'),
-        ('altro', 'Altro'),
-    ]
     #opzioni predefinite per l'evento
     titolo = models.CharField(max_length=100)
     descrizione = models.TextField(max_length=100, help_text="(max 100 caratteri)")

@@ -65,8 +65,7 @@ def aggiungi_evento(request):
     if request.method == 'POST':
         form = EventoForm(request.POST)
         if form.is_valid():
-            evento = form.save(commit=False)
-            evento.save()
+            form.save()
             return redirect('calendario_mensile')
     else:
         form = EventoForm()
