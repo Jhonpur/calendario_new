@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="container bg-body rounded p-4">
+    <h1>Elimina Evento</h1>
+    <p class="alert alert-warning">Sei sicuro di voler eliminare questo evento: <strong>"{{ evento.titolo }}"</strong>?</p>
+    <form method="post" id="formEliminazione">
+        {% csrf_token %}
+        <button type="button" class="btn btn-danger" onclick="confermaEliminazione()">Conferma Eliminazione</button>
+        <a href="{% url 'calendario_mensile' %}" class="btn btn-secondary">Annulla</a>
+    </form>
+</div>
+
+<script>
+    
+function confermaEliminazione() {
+    Swal.fire({
+        title: 'Sei sicuro?',
+        text: "Non potrai recuperare questo evento!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Elimina',
+        cancelButtonText: 'Annulla'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Mostra il messaggio di successo
+            Swal.fire({
+                title: 'Eliminato!',
+                text: 'L\'evento è stato eliminato.',
+                icon: 'success',
+            }).then(() => {
+                // Invia il form
+                document.getElementById('formEliminazione').submit();
+            });
+        }
+    });
+}
+</script>
+{% endblock %}

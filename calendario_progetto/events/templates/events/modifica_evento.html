@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="container bg-body rounded p-4 mb-3">
+    <h1>Modifica Evento</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div class="mt-4">
+            <button type="submit" class="btn btn-primary">Salva Modifiche</button>
+            <a href="{% url 'calendario_mensile' %}" class="btn btn-secondary">Annulla</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

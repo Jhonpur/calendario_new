@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container bg-body rounded p-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Elenco Eventi</h1>
+        <a href="{% url 'aggiungi_evento' %}" class="btn btn-success">
+            <i class="bi bi-plus-lg"></i> Nuovo Evento
+        </a>
+    </div>
+    
+    {% if eventi %}
+    <div class="table-responsive">
+        <table id="tabellaEventi" class="table table-bordered table-striped text-center">
+            <thead class="table-light">
+                <tr>
+                    <th>Titolo</th>
+                    <th>Data</th>
+                    <th>Ora</th>
+                    <th>Categoria</th>
+                    <th>Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for evento in eventi %}
+                <tr>
+                    <td>{{ evento.titolo }}</td>
+                    <td>{{ evento.data|date:"d/m/Y" }}</td>
+                    <td>{{ evento.ora|date:"H:i" }}</td>
+                    <td>{{ evento.categoria }}</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a href="{% url 'modifica_evento' evento.id %}" class="btn btn-sm btn-warning">
+                                <i class="bi bi-pencil-fill"></i>
+                            </a>
+                            <a href="{% url 'elimina_evento' evento.id %}" class="btn btn-sm btn-danger">
+                                <i class="bi bi-trash-fill"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% else %}
+    <div class="alert alert-info">
+        Non ci sono eventi da visualizzare.
+    </div>
+    {% endif %}
+    
+    <a href="{% url 'calendario_mensile' %}" class="btn btn-primary mt-3">
+        <i class="bi bi-calendar3"></i> Torna al Calendario
+    </a>
+</div>
+{% endblock %}
+
+

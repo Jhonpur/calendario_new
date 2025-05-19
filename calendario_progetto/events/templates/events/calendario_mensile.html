@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block content %}
+<div class="container pt-4 bg-body rounded">
+    <div class="d-flex justify-content-between align-items-center">
+        <a href="{% url 'calendario_mensile' %}?anno={{ anno_prec }}&mese={{ mese_prec }}" class="btn btn-outline-primary mt-5">
+            &laquo; Mese Precedente
+        </a>
+        <h1 class="text-dark" style="font-family: 'Codystar', cursive;">{{ nome_mese }} {{ anno }}</h1>
+        <a href="{% url 'calendario_mensile' %}?anno={{ anno_succ }}&mese={{ mese_succ }}" class="btn btn-outline-primary mt-5">
+            Mese Successivo &raquo;
+        </a>
+    </div>
+    <div class="d-flex justify-content-center my-4">
+        <a href="{% url 'aggiungi_evento' %}" class="btn btn-success mx-3 shadow">
+            <i class="bi bi-plus-lg"></i> Aggiungi Evento
+        </a>
+        <a href="{% url 'lista_eventi' %}" class="btn text-success-emphasis bg-success-subtle mx-3 px-3 shadow">
+            Gestisci Eventi
+        </a>
+    </div>
+
+    <div class="table-responsive shadow-lg rounded mb-5">
+        <table class="table table-bordered text-center align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Lun</th>
+                    <th>Mar</th>
+                    <th>Mer</th>
+                    <th>Gio</th>
+                    <th>Ven</th>
+                    <th class="text-primary">Sab</th>
+                    <th class="text-danger">Dom</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for settimana in calendario %}
+                <tr>
+                    {% for giorno in settimana %}
+                    <td class="calendar-cell align-top position-relative" style="height: 140px; max-height: 40px; max-width: 68px; min-width: fit-content; overflow-y: auto; vertical-align: top; padding: 0.3rem;">
+                        {% if giorno != 0 %}
+                            <div class="fw-bold">{{ giorno }}</div>
+                            {% for evento in eventi %}
+                                {% if evento.data.day == giorno %}
+                                    <div class="mt-1">
+                                        <span class="badge bg-success text-dark d-block fs-5 px-1" role="button" onclick="mostraDescrizione('{{ evento.titolo|escapejs }}', '{{ evento.descrizione|escapejs }}')">
+                                            {{ evento.titolo|truncatewords:3}}
+                                        </span>
+                                        <span class="badge bg-info text-dark d-block mt-1" role="button" onclick="mostraDescrizione('{{ evento.titolo|escapejs }}', '{{ evento.descrizione|escapejs }}')">
+                                            {{ evento.descrizione|truncatewords:3 }} <!---->
+                                        </span>
+                                        <div class="btn-group btn-group-sm justify-content-between mt-1 w-100" role="group">
+                                            <a href="{% url 'modifica_evento' evento.id %}" class="btn-outline-warning btn-icon text-warning">
+                                                <i class="bi bi-pencil-fill"></i>
+                                            </a>
+                                            <a href="{% url 'elimina_evento' evento.id %}" class="btn-outline-danger btn-icon text-danger">
+                                                <i class="bi bi-trash-fill"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
