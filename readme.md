@@ -2,7 +2,7 @@
 
 Un'applicazione web per la gestione di eventi in un calendario, sviluppata con il framework Django. L'applicazione permette di visualizzare, aggiungere, modificare ed eliminare eventi organizzati in un calendario mensile interattivo.
 
-![Logo Progetto](calendario_progetto/events/static/events/img/agm_solutions.png)
+![Logo Progetto](/calendario_progetto/events/static/events/img/agm_solutions.png)
 
 ## 📋 Caratteristiche
 
