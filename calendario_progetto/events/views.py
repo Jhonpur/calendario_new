@@ -10,7 +10,7 @@ def calendario_mensile(request):
     # Ottengo il mese e l'anno corrente
     anno = datetime.now().year
     mese = datetime.now().month
-    # Ottengo il mese e l'anno dalla richiesta GET, se presenti
+    # Ottengo il mese e l'anno dalla richiesta GET, se presenti (serve per la navigazione tra i mesi)
     anno = request.GET.get('anno', anno)
     mese = request.GET.get('mese', mese)
 
@@ -30,7 +30,7 @@ def calendario_mensile(request):
         mese_succ = 1
         anno_succ += 1
 
-     # Ottengo il nome del mese in italiano
+    # Ottengo il nome del mese in italiano
     nomi_mesi = ['', 'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 
                 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre']
     # Ottengo il nome del mese corrente al posto del numero
@@ -39,6 +39,7 @@ def calendario_mensile(request):
     #calendario creato
     cal = calendar.monthcalendar(anno, mese)
 
+    # datetime crea un oggetto data a partire da anno, mese e giorno
     primi_del_mese = datetime(anno, mese, 1)
     ultimo_del_mese = datetime(anno, mese, calendar.monthrange(anno, mese)[1])
 
@@ -47,6 +48,7 @@ def calendario_mensile(request):
         data__range = [primi_del_mese, ultimo_del_mese]
     )
 
+    #dizionario con i dati da passare al template
     context = {
         'calendario': cal,
         'anno': anno,
@@ -75,7 +77,7 @@ def aggiungi_evento(request):
 def modifica_evento(request, evento_id):
     evento = get_object_or_404(Evento, id=evento_id)
     if request.method == 'POST':
-        form = EventoForm(request.POST, instance=evento)
+        form = EventoForm(request.POST, instance=evento) # specifico l'istanza da modificare
         if form.is_valid():
             form.save()
             return redirect('calendario_mensile')

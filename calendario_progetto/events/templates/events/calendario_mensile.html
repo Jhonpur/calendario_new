@@ -43,7 +43,7 @@
                         {% if giorno != 0 %}
                             <div class="fw-bold">{{ giorno }}</div>
                             {% for evento in eventi %}
-                                {% if evento.data.day == giorno %}
+                                {% if evento.data.day == giorno %} <!--verifica se il giorno coincide con la data dell'evento-->
                                     <div class="mt-1">
                                         <span class="badge bg-success text-dark d-block fs-5 px-1" role="button" onclick="mostraDescrizione('{{ evento.titolo|escapejs }}', '{{ evento.descrizione|escapejs }}')">
                                             {{ evento.titolo|truncatewords:3}}
