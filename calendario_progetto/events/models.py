@@ -15,7 +15,7 @@ class Evento(models.Model):
     descrizione = models.TextField(max_length=100, help_text="(max 100 caratteri)")
     data = models.DateField()
     ora = models.TimeField()
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT)
 
     def __str__(self):
         return f"{self.titolo}"
